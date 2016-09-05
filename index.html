@@ -74,25 +74,154 @@
                 <section id="objectives">
                     <h2>What we'll cover</h2>
                     <ul>
-                        <li>What will we talk about tonight?</li>
-                        <li>Tonight's agenda</li>
-                        <li>More things to cover?</li>
-                        <li>Etc</li>
+                        <li>What is Front-End Architecture?</li>
+                        <li>The Structure</li>
+                        <li>Misc Stuff That's Important for Good Architecture </li>
+                        <li>Yeoman</li>
                     </ul>
                     <aside class="notes">
                         Any presentation notes go here
                     </aside>
                 </section>
                 <section id="slides">
-                    <h2>Content slides go in here</h2>
-                </section>
+                    <section>
+                        <h2>Introduction to Front-End Architecture</h2>
+                    </section>
+                    <section>
+                        <h3>1. What is Front-End Architecture?</h3>
+                        <ul>
+                            <li class="fragment">Where files &amp; assets go (how they’re organized)</li>
+                            <li class="fragment">Good architecture is a fundamental step in building a house. The same applies to applications/websites. Just as the structure for a house varies from the structure of a baseball stadium, different applications/websites can require different structure. </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>2. Mostly Conceptual</h3>
+                        <p>While the basic pieces/ideas are the same, architecture may vary based on:</p>
+                        <ul>
+                            <li class="fragment"><strong>Individual/Team Preferences</strong>
+                                <ul>
+                                    <li>Directory naming `imgs` vs. `images`</li>
+                                    <li>Organized by section of site or type of asset? Probably both, but in what order…`app/about/css` vs. `app/css/about</li>
+                                    <!-- Emphasize it doesn't matter what you choose, as long as it's consistent -->
+                                </ul>
+                            </li>
+                            <li class="fragment"><strong>Project Requirements</strong>
+                                <ul>
+                                    <li><strong>Responsiveness</strong> - Supporting mobile &amp; desktop? Other devices?</li>
+                                    <!-- may want images/mobile, images/desktp separate directories -->
+                                </ul>
+                            </li>
+                            <li class="fragment"><strong>Tools / Build Process</strong>
+                                <ul>
+                                    <li><strong>Preprocessors</strong> (like Sass/Less for CSS?) - Use `scss` folder instead of `css`</li>
+                                    <li><strong>Frameworks</strong> - You’ll want a file structure to complement that framework - i.e. Django has its own style guide to follow</li>
+                                    <!--Add image to compare Django vs. Angular/Wordpress/Something file structure and describe differences? -->
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>3. Modularity</h3>
+                        <ul>
+                            <li class="fragment">Single Responsibility Principle
+                                <ul>
+                                    <li>Certain sections of code should only be in charge of a single functionality</li>
+                                    <li>Resuseable Code</li>
+                                </ul>
+                            </li>
+                            <li class="fragment">Sounds great in theory, but how does this apply to real life?
+                                <ul>
+                                    <li>Fewer bugs by design</li>
+                                    <li>When there are bugs, they're easier to find, and to fix</li>
+                                    <li>End result? Happy programmers and happy clients</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <aside class="notes">
+                        - Single responsibility principle - a term that is used in all aspects of code, from changing colors of links in CSS to making a footer that appears on every page.
+                        - You have a website, and the navigation bar appears on every page. You're not going to rebuild that navigation bar at the top of every HTML file you create, you're going to make a module/component file, called something like nav.html, and then tell your code to include that on every page.
+                        - Why? A) copying and pasting that much will give you carpel tunnel. B) Hard to maintain - if the client wants to change what links are in their nav bar, you'd have to edit every HTML file with the navigation. Things change in programming all the time in ways you wouldn't expect, this makes it easier to make those changes in the future
+                        -Frustrating to work on "legacy code" that wasn't well thought out. Hard to locate bugs and squash them entirely without modularity. If you jump into a project and the nav bar is set up where you have to edit it on every page, and you miss a page, there's a bug floating around.
+                    </aside>
+                    </section>
+                    <section>
+                        <h2>The Structure</h2>
+                        <h3>App Directory</h3>
+                            <ul>
+                                <li>Index.html</li>
+                                <li>Assets</li>
+                                <li>Dist</li>
+                            </ul>
+                    </section>
+                    <section>
+                        <h2>Index.html</h2>
+                        <ul>
+                            <li class="fragment">The most important page for your site - the Home Page</li>
+                            <li class="fragment">What gets served (without /index.html appended to the end of the url). </li>
+                            <li class="fragment">When you view www.amazon.com, you're viewing amazon.com's index.html file, for example.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Assets</h2>
+                        <ul>
+                            <li>Images (.png/.jpg files)</li>
+                            <li>Styles (.css files)</li>
+                            <li>Scripts (.js files)</li>
+                            <li>Fonts (.otf, .ttf files)</li>
+                            <li>Views (partial .html files)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Dist</h2>
+                        <ul>
+                            <li class="fragment">Short for "distribution"</li>
+                            <li class="fragment">Production-ready</li>
+                            <li class="fragment">Files are made to load quickly - they're minified
+                                <ul>
+                                    <li class="fragment">Removes spaces, replaces human-created function names to shorter names (like getDrink() -> x())</li>
+                                    <li class="fragment">Not very human readable, but are read quickly by the browser for better performance</li>
+                                </ul>
+                            </li>
+                            <li class="fragment">Can be manually created, but usually developers use a tool like Gulp to automate the process.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>In dist, you have...</h2>
+                        <ul>
+                            <li class="fragment">`index.html` (`dist/index.html`)</li>
+                            <li class="fragment">Assets
+                            </li>
+                            <li class="fragment">Views</li>
+                        </ul>
+                    </section>
+                     <aside class="notes">
+                    </aside>
+            </section>
+            <section>
+                <h2>Other things important for good architecture</h2>
+                <ul>
+                    <li>Documentation</li>
+                    <li>Naming Conventions</li>
+                    <li>Build tools</li>
+                </ul>
+                <aside class="notes">
+                    Documentation - Helps developers who are new to the project hit the ground running. What's the project about? What are the naming conventions?
+
+                    Naming conventions - will you name your pages "blog.html" or "blog-page.html"? Things seem insignificant when you first start a project, but once you have a 30 different folders that are all named differently a year down the road, it will cause a lot of confusion
+
+                    Build tools - Help simplify and automate the process.
+                </aside>
+            </section>
+            <section>
+                <h2>Yeoman</h2>
+            </section>
                 <section id="review">
                     <h2>Review</h2>
                     <ul>
                         <li>What did we cover?</li>
                         <li>Etc.</li>
                     </ul>
-                </section>          
+                </section>
                 <section id="questions">
                   <h2>Questions?</h2>
                   <div style = "font-size:1200%; height:100%;" class ="blue">?

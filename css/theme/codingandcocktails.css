@@ -77,11 +77,11 @@ body {
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: #484e78;
+  color: #d0c675;
   text-decoration: none; }
 
 .reveal a:not(.image):hover {
-  color: #484e78;
+  color: #d0c675;
   text-shadow: none;
   border: none; }
 

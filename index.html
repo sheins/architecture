@@ -88,40 +88,14 @@
                         <h2>Introduction to Front-End Architecture</h2>
                     </section>
                     <section>
-                        <h3>1. What is Front-End Architecture?</h3>
+                        <h3>What is Front-End Architecture?</h3>
                         <ul>
                             <li class="fragment">Where files &amp; assets go (how they’re organized)</li>
                             <li class="fragment">Good architecture is a fundamental step in building a house. The same applies to applications/websites. Just as the structure for a house varies from the structure of a baseball stadium, different applications/websites can require different structure. </li>
                         </ul>
                     </section>
                     <section>
-                        <h3>2. Mostly Conceptual</h3>
-                        <p>While the basic pieces/ideas are the same, architecture may vary based on:</p>
-                        <ul>
-                            <li class="fragment"><strong>Individual/Team Preferences</strong>
-                                <ul>
-                                    <li>Directory naming `imgs` vs. `images`</li>
-                                    <li>Organized by section of site or type of asset? Probably both, but in what order…`app/about/css` vs. `app/css/about</li>
-                                    <!-- Emphasize it doesn't matter what you choose, as long as it's consistent -->
-                                </ul>
-                            </li>
-                            <li class="fragment"><strong>Project Requirements</strong>
-                                <ul>
-                                    <li><strong>Responsiveness</strong> - Supporting mobile &amp; desktop? Other devices?</li>
-                                    <!-- may want images/mobile, images/desktp separate directories -->
-                                </ul>
-                            </li>
-                            <li class="fragment"><strong>Tools / Build Process</strong>
-                                <ul>
-                                    <li><strong>Preprocessors</strong> (like Sass/Less for CSS?) - Use `scss` folder instead of `css`</li>
-                                    <li><strong>Frameworks</strong> - You’ll want a file structure to complement that framework - i.e. Django has its own style guide to follow</li>
-                                    <!--Add image to compare Django vs. Angular/Wordpress/Something file structure and describe differences? -->
-                                </ul>
-                            </li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h3>3. Modularity</h3>
+                        <h3>Modularity</h3>
                         <ul>
                             <li class="fragment">Single Responsibility Principle
                                 <ul>
@@ -138,11 +112,11 @@
                             </li>
                         </ul>
                         <aside class="notes" data-markdown>
-                        - Single responsibility principle - a term that is used in all aspects of code, from changing colors of links in CSS to making a footer that appears on every page.
-                        - You have a website, and the navigation bar appears on every page. You're not going to rebuild that navigation bar at the top of every HTML file you create, you're going to make a module/component file, called something like nav.html, and then tell your code to include that on every page.
-                        - Why? A) copying and pasting that much will give you carpel tunnel. B) Hard to maintain - if the client wants to change what links are in their nav bar, you'd have to edit every HTML file with the navigation. Things change in programming all the time in ways you wouldn't expect, this makes it easier to make those changes in the future
-                        -Frustrating to work on "legacy code" that wasn't well thought out. Hard to locate bugs and squash them entirely without modularity. If you jump into a project and the nav bar is set up where you have to edit it on every page, and you miss a page, there's a bug floating around.
-                    </aside>
+                            - Single responsibility principle - a term that is used in all aspects of code, from changing colors of links in CSS to making a footer that appears on every page.
+                            - You have a website, and the navigation bar appears on every page. You're not going to rebuild that navigation bar at the top of every HTML file you create, you're going to make a module/component file, called something like nav.html, and then tell your code to include that on every page.
+                            - Why? A) copying and pasting that much will give you carpel tunnel. B) Hard to maintain - if the client wants to change what links are in their nav bar, you'd have to edit every HTML file with the navigation. Things change in programming all the time in ways you wouldn't expect, this makes it easier to make those changes in the future
+                            -Frustrating to work on "legacy code" that wasn't well thought out. Hard to locate bugs and squash them entirely without modularity. If you jump into a project and the nav bar is set up where you have to edit it on every page, and you miss a page, there's a bug floating around.
+                        </aside>
                     </section>
                     <section>
                         <h2>The Structure</h2>
@@ -178,7 +152,7 @@
                             <li class="fragment">Production-ready</li>
                             <li class="fragment">Files are made to load quickly - they're minified
                                 <ul>
-                                    <li class="fragment">Removes spaces, replaces human-created function names to shorter names (like getDrink() -> x())</li>
+                                    <li class="fragment">Removes spaces, replaces human-created function names to shorter names.<pre><code class="html">getDrink()</code></pre> -> <pre><code class="html">x()</code></pre></li>
                                     <li class="fragment">Not very human readable, but are read quickly by the browser for better performance</li>
                                 </ul>
                             </li>
@@ -196,6 +170,51 @@
                     </section>
                      <aside class="notes">
                     </aside>
+            </section>
+            <section>
+                <section>
+                    <h3>Architecture is Flexible</h3>
+                    <p>While the basic pieces/ideas are the same, architecture may vary based on:</p>
+                    <ul>
+                        <li class="fragment"><strong>Individual/Team Preferences</strong>
+                            <ul>
+                                <li>Directory naming <pre><code class="html">`imgs`</code></pre> vs. <pre><code class="html">`images`</code></pre></li>
+                                <li>Organized by section of site or type of asset? 
+                                    <ul>
+                                        <li>Probably both, but in what order…<pre><code class="html">`app/about/css`</code></pre> vs. <pre><code class="html">`app/css/about`</code></pre></li></li>
+                                    </ul>
+                                    
+                                <!-- Emphasize it doesn't matter what you choose, as long as it's consistent -->
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li class="fragment"><strong>Project Requirements</strong>
+                            <ul>
+                                <li><strong>Responsiveness</strong> - Supporting mobile &amp; desktop? Other devices?</li>
+                                <!-- may want images/mobile, images/desktop separate directories -->
+                            </ul>
+                        </li>
+                        <li class="fragment"><strong>Tools / Build Process</strong>
+                            <ul>
+                                <li><strong>Preprocessors</strong> (like Sass/Less for CSS) - Use `scss` folder instead of `css`</li>
+                                <li><strong>Frameworks</strong> - You’ll want a file structure to complement that framework - i.e. Django has its own style guide to follow</li>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <img src="images/angular-structure-example.jpg" alt="Example angular directory structure">
+                    <span class="attribution">Screenshot from: <a href="https://scotch.io/tutorials/angularjs-best-practices-directory-structure" target="_blank">https://scotch.io/tutorials/angularjs-best-practices-directory-structure</a></span>
+                </section>
+                <section>
+                    <img src="images/wordpress-structure-example.jpg" alt="Example wordpress structure">
+                    <span class="attribution">Screenshot from: <a href="https://wordpress.org/themes/twentysixteen/">the Twenty Sixteen Wordpress Theme</a></span>
+                    <aside class="notes" data-markdown>
+                        Wordpress - May notice "style.css" and "screenshot.png" are not where you'd expect. These are special files in Wordpress. Screenshot will be the thumbnail when people search or use your theme. Style.css is used for every page. May seem overwhelming, but these things are all documented for you when you start using a framework.
+                    </aside>
+                </section>
             </section>
             <section>
                 <h2>Other things important for good architecture</h2>

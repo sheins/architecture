@@ -183,6 +183,11 @@ SNIPPETS
 
 /* Architecture CSS */
 
+.reveal .attribution {
+  font-size: .6em;
+  display: block;
+}
+
 .yeoman {
     height: 550px;
     width: auto;

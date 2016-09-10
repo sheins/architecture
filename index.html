@@ -90,9 +90,14 @@
                     <section>
                         <h3>What is Front-End Architecture?</h3>
                         <ul>
-                            <li class="fragment">Where files &amp; assets go (how they’re organized)</li>
                             <li class="fragment">Good architecture is a fundamental step in building a house. The same applies to applications/websites. Just as the structure for a house varies from the structure of a baseball stadium, different applications/websites can require different structure. </li>
+                            <li class="fragment">Where files &amp; assets go (how they’re organized)</li>
                         </ul>
+                         <aside class="notes" data-markdown>
+                                - Good architecture is a fundamental step in building a house. 
+                                - Same applies to applications/websites. Just as the structure for a house varies from the structure of a baseball stadium, different applications/websites can require different structure.
+                                - We’ll cover basics that can be reused for most of your projects -- and of course you can customize as your project requires.
+                        </aside>
                     </section>
                     <section>
                         <h3>Modularity</h3>
@@ -100,10 +105,10 @@
                             <li class="fragment">Single Responsibility Principle
                                 <ul>
                                     <li>Certain sections of code should only be in charge of a single functionality</li>
-                                    <li>Resuseable Code</li>
+                                    <li>Resuseable Code (DRY - Don't Repeat Yourself!)</li>
                                 </ul>
                             </li>
-                            <li class="fragment">Sounds great in theory, but how does this apply to real life?
+                            <li class="fragment">Sounds great in theory, but why does it really matter?
                                 <ul>
                                     <li>Fewer bugs by design</li>
                                     <li>When there are bugs, they're easier to find, and to fix</li>
@@ -113,19 +118,29 @@
                         </ul>
                         <aside class="notes" data-markdown>
                             - Single responsibility principle - a term that is used in all aspects of code, from changing colors of links in CSS to making a footer that appears on every page.
-                            - You have a website, and the navigation bar appears on every page. You're not going to rebuild that navigation bar at the top of every HTML file you create, you're going to make a module/component file, called something like nav.html, and then tell your code to include that on every page.
-                            - Why? A) copying and pasting that much will give you carpel tunnel. B) Hard to maintain - if the client wants to change what links are in their nav bar, you'd have to edit every HTML file with the navigation. Things change in programming all the time in ways you wouldn't expect, this makes it easier to make those changes in the future
-                            -Frustrating to work on "legacy code" that wasn't well thought out. Hard to locate bugs and squash them entirely without modularity. If you jump into a project and the nav bar is set up where you have to edit it on every page, and you miss a page, there's a bug floating around.
-                        </aside>
+                            - Using navigation bar on every page
+                            - Why? Copying and Pasting is bad! DRY code!
+                            - Think of the future. Legacy code gets gross quickly
                     </section>
                     <section>
                         <h2>The Structure</h2>
                         <h3>App Directory</h3>
                             <ul>
-                                <li>Index.html</li>
-                                <li>Assets</li>
-                                <li>Dist</li>
+                                <li class="fragment">Houses your application’s html/css/js code.</li>
+                                    <ul class="fragment">
+                                        <li>Index.html</li>
+                                        <li>Assets</li>
+                                        <li>Dist</li>
+                                    </ul>
+                                <li class="fragment">Unminified, unoptimized, for development</li>
                             </ul>
+                            <aside class="notes" data-markdown>
+                                    - Remind them that the exact structure will vary based on project.
+                                    -What we’ll cover tonight are basics that can be reused and that apply to our project tonight.
+                                    -`app` is very common name used here.
+                                        -Houses your application’s html/css/js code.
+                                        -Unminified, unoptimized, for development.
+                            </aside>
                     </section>
                     <section>
                         <h2>Index.html</h2>
@@ -134,19 +149,71 @@
                             <li class="fragment">What gets served (without /index.html appended to the end of the url). </li>
                             <li class="fragment">When you view www.amazon.com, you're viewing amazon.com's index.html file, for example.</li>
                         </ul>
+                        <aside class="notes" data-markdown>
+                            -Most important single file in the system - may be the only full file in Single Page Apps (covering next week). Can still have partial files</li>
+                            -So in root `app` directory, this is your homepage -- served by server without explicitly adding index.html to URL
+                            - The presentation you’re viewing now -- look at the URL. It doesn’t have index.html but in it, but it’s serving the index.html file to the browser.
+                        </aside>
+                    </section>
                     </section>
                     <section>
                         <h2>Assets</h2>
                         <ul>
-                            <li>Images (.png/.jpg files)</li>
-                            <li>Styles (.css files)</li>
-                            <li>Scripts (.js files)</li>
-                            <li>Fonts (.otf, .ttf files)</li>
-                            <li>Views (partial .html files)</li>
+                            <li>Images</li>
+                            <li>Styles</li>
+                            <li>Scripts</li>
+                            <li>Fonts</li>
+                            <li>Views</li>
                         </ul>
                         <aside class="notes">
-                            Going to take a short coding break to do Part I of the worksheet and grab some drinks!
+                            - Everything varies based on Framework
+                            - Be consistent!
+                            - Remove folders if you don't need them! (Fonts, for example)
                         </aside>
+                    </section>
+                    <section>
+                            <section>
+                                <h2>Images</h2>
+                                <ul> 
+                                    <li>.png or .jpg files</li>
+                                    <li>Can be called <span style="background: #3f3f3f; font-family: Inconsolata;">imgs/</span> or <span style="background: #3f3f3f; font-family: Inconsolata;">images/</span></li>
+                                    <li>Can organize it even futher into <span style="background: #3f3f3f; font-family: Inconsolata;">images/apps</span> or <span style="background: #3f3f3f; font-family: Inconsolata;">images/mobile</span> </li>
+                                </ul>
+                            </section>
+                            <section>
+                                <h2>Styles</h2>
+                                <ul> 
+                                    <li><span style="background: #3f3f3f; font-family: Inconsolata;">.css</span> files</li>
+                                    <li>Other names: <span style="background: #3f3f3f; font-family: Inconsolata;">`css/`, `scss/`, `style/`, etc.</span></li>
+                                    <li>Can organize furhter into variables, mixins, app name</li>
+                                </ul>
+                            </section>
+                            <section>
+                                <h2>Scripts</h2>
+                                <ul>
+                                    <li><span style="background: #3f3f3f; font-family: Inconsolata;">.js</span> files</li>
+                                    <li>Other names: <span style="background: #3f3f3f; font-family: Inconsolata;">`js/`, `javascript/`, `script/`, etc.</span> </li>
+                                    <li>Can have subfolders for "libraries", like jQuery, Bootstrap, FontAwesome</li>
+                                </ul>
+                            </section>
+                            <section>
+                                <h2>Fonts</h2>
+                                <ul>
+                                    <li><span style="background: #3f3f3f; font-family: Inconsolata;">.otf, .ttf</span> files</li>
+                                    <li>May not need this, Google Fonts is so popular and you don't have to host it yourself.</li>
+                                </ul>
+                            </section>
+                            <section>
+                                <h2>Views</h2>
+                                <ul>
+                                    <li>Partial <span style="background: #3f3f3f; font-family: Inconsolata;">.html</span> files</li>
+                                    <li>Could be called templates, reusable pieces of code (nav, footer)</li>
+                                </ul>
+                            </section>
+                    </section>
+                    <section>
+                        <h2>Coding Break!</h2>
+                        <h3>Grab another drink, and begin Part I of your worksheet.</h3>
                     </section>
                     <section>
                         <h2>Dist</h2>
@@ -161,6 +228,14 @@
                             </li>
                             <li class="fragment">Can be manually created, but usually developers use a tool like Gulp to automate the process.</li>
                         </ul>
+                        <aside class="notes" data-markdown>
+                            - App is where development goes, Dist is for production-ready files
+                            - Editing these would be a pain since they're not human-friendly
+                            - Better performance
+                            - Won't edit these, likely generated by a build-process such as Gulp
+                            - Run a command in your terminal, depending on which build process you're using, and it does it for you!
+                            - Files are minified for better performance
+                        </aside>
                     </section>
                     <section>
                         <h2>In dist, you have...</h2>
@@ -170,6 +245,13 @@
                             </li>
                             <li class="fragment">Views</li>
                         </ul>
+                        <aside class="notes" data-markdown>
+                            - Index.html will look a lot like your development version but maybe some spaces removed
+                            - Don't edit this file! It will be overwritten when you run your build process. - Always edit the one in your apps directory
+                            - Assets - minified and browser ready.
+                            - Browser can't read SASS or Coffeescript.
+                            - Can vary depending on what you're using. May create full html files by combining your partials
+                        </aside>
                     </section>
             </section>
             <section>
@@ -185,35 +267,41 @@
                                         <li>Probably both, but in what order? <span style="background: #3f3f3f; font-family: Inconsolata;">app/about/css</span> vs. <span style="background: #3f3f3f; font-family: Inconsolata;">app/css/about</span></li>
                                     </ul>
                                 </li>
-                                <!-- Emphasize it doesn't matter what you choose, as long as it's consistent -->
                             </ul>
                         </li>
                     </ul>
+                    <aside class="notes" data-markdown>
+                        - It doesn't matter what you choose, as long as it's consistent
+                        - Decide, write it down somewhere, and stick with it.
+                    </aside>
                 </section>
                 <section>
                     <ul>
                         <li class="fragment"><strong>Project Requirements</strong>
                             <ul>
                                 <li><strong>Responsiveness</strong> - Supporting mobile &amp; desktop? Other devices?</li>
-                                <!-- may want images/mobile, images/desktop separate directories -->
                             </ul>
                         </li>
                         <li class="fragment"><strong>Tools / Build Process</strong>
                             <ul>
                                 <li><strong>Preprocessors</strong> (like Sass/Less for CSS) - Use <span style="background: #3f3f3f; font-family: Inconsolata;">scss</span> folder instead of <span style="background: #3f3f3f; font-family: Inconsolata;">css</span></li>
-                                <li><strong>Frameworks</strong> - You’ll want a file structure to complement that framework - i.e. Django has its own style guide to follow</li>
+                                <li><strong>Frameworks</strong> - You’ll want a file structure to complement that framework - i.e. Wordpress has its own style guide and rules to follow</li>
+                            <ul>
                         </li>
                     </ul>
-                </section>
-                <section>
-                    <img src="images/angular-structure-example.jpg" alt="Example angular directory structure">
-                    <span class="attribution">Screenshot from: <a href="https://scotch.io/tutorials/angularjs-best-practices-directory-structure" target="_blank">https://scotch.io/tutorials/angularjs-best-practices-directory-structure</a></span>
+                    <aside class="notes" data-markdown>
+                        - Responsive design - making your web page change to make your website look good on all screensizes and devices
+                        - For responsive, may want images/mobile, images/desktop separate directories
+                        - Frameworks - you have to follow their structures or else your site may not compile
+                    </aside>
                 </section>
                 <section>
                     <img src="images/wordpress-structure-example.jpg" alt="Example wordpress structure">
                     <span class="attribution">Screenshot from: <a href="https://wordpress.org/themes/twentysixteen/">the Twenty Sixteen Wordpress Theme</a></span>
                     <aside class="notes" data-markdown>
-                        Wordpress - May notice "style.css" and "screenshot.png" are not where you'd expect. These are special files in Wordpress. Screenshot will be the thumbnail when people search or use your theme. Style.css is used for every page. May seem overwhelming, but these things are all documented for you when you start using a framework.
+                        - >Wordpress - May notice "style.css" and "screenshot.png" are not where you'd expect.
+                        - These are special files in Wordpress. Screenshot will be the thumbnail when people search or use your theme.
+                        - Style.css is used for every page. May seem overwhelming, but these things are all documented for you when you start using a framework.
                     </aside>
                 </section>
             </section>
@@ -225,11 +313,10 @@
                     <li>Build tools</li>
                 </ul>
                 <aside class="notes" data-markdown>
-                    Documentation - Helps developers who are new to the project hit the ground running. What's the project about? What are the naming conventions?
-
-                    Naming conventions - will you name your pages "blog.html" or "blog-page.html"? Things seem insignificant when you first start a project, but once you have a 30 different folders that are all named differently a year down the road, it will cause a lot of confusion
-
-                    Build tools - Help simplify and automate the process.
+                    - Documentation - Helps developers who are new to the project hit the ground running. What's the project about? What are the naming conventions?
+                    - Naming conventions - will you name your pages "blog.html" or "blog-page.html"?
+                    - Things seem insignificant when you first start a project, but once you have a 30 different folders that are all named differently a year down the road, it will cause a lot of confusion
+                    - Build tools - Help simplify and automate the process.>
                 </aside>
             </section>
             <section id="slides">

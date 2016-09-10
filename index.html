@@ -25,9 +25,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
         <link rel="icon" type="image/x-icon" href="favicon.ico">
-
+    
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
         <link rel="stylesheet" href="css/reveal.css">
         <link rel="stylesheet" href="css/theme/codingandcocktails.css" id="theme">
 
@@ -155,7 +155,7 @@
                             <li class="fragment">Production-ready</li>
                             <li class="fragment">Files are made to load quickly - they're minified
                                 <ul>
-                                    <li class="fragment">Removes spaces, replaces human-created function names to shorter names.<pre><code class="html">getDrink()</code></pre> -> <pre><code class="html">x()</code></pre></li>
+                                    <li class="fragment">Removes spaces, replaces human-created function names to shorter names. <span style="background: #3f3f3f; font-family: Inconsolata;">getDrink()</span> -> <span style="background: #3f3f3f; font-family: Inconsolata;">x()</span></li>
                                     <li class="fragment">Not very human readable, but are read quickly by the browser for better performance</li>
                                 </ul>
                             </li>
@@ -165,7 +165,7 @@
                     <section>
                         <h2>In dist, you have...</h2>
                         <ul>
-                            <li class="fragment">`index.html` (`dist/index.html`)</li>
+                            <li class="fragment">index.html (dist/index.html)</li>
                             <li class="fragment">Assets
                             </li>
                             <li class="fragment">Views</li>
@@ -179,12 +179,12 @@
                     <ul>
                         <li class="fragment"><strong>Individual/Team Preferences</strong>
                             <ul>
-                                <li>Directory naming <pre><code class="html">`imgs`</code></pre> vs. <pre><code class="html">`images`</code></pre></li>
-                                <li>Organized by section of site or type of asset? 
+                                <li>Directory naming: <span style="background: #3f3f3f; font-family: Inconsolata;">imgs</span> vs. <span style="background: #3f3f3f; font-family: Inconsolata;">images</span></li>
+                                <li>Organized by section of site or type of asset?
                                     <ul>
-                                        <li>Probably both, but in what order…<pre><code class="html">`app/about/css`</code></pre> vs. <pre><code class="html">`app/css/about`</code></pre></li></li>
+                                        <li>Probably both, but in what order? <span style="background: #3f3f3f; font-family: Inconsolata;">app/about/css</span> vs. <span style="background: #3f3f3f; font-family: Inconsolata;">app/css/about</span></li>
                                     </ul>
-                                    
+                                </li>
                                 <!-- Emphasize it doesn't matter what you choose, as long as it's consistent -->
                             </ul>
                         </li>
@@ -200,7 +200,7 @@
                         </li>
                         <li class="fragment"><strong>Tools / Build Process</strong>
                             <ul>
-                                <li><strong>Preprocessors</strong> (like Sass/Less for CSS) - Use `scss` folder instead of `css`</li>
+                                <li><strong>Preprocessors</strong> (like Sass/Less for CSS) - Use <span style="background: #3f3f3f; font-family: Inconsolata;">scss</span> folder instead of <span style="background: #3f3f3f; font-family: Inconsolata;">css</span></li>
                                 <li><strong>Frameworks</strong> - You’ll want a file structure to complement that framework - i.e. Django has its own style guide to follow</li>
                         </li>
                     </ul>
@@ -243,6 +243,7 @@
                     <ul>
                         <li class="fragment">Tool that sets up your project's file stucture</li>
                         <li class="fragment">Can be used with a variety of languages using generators to create scaffolding</li>
+                        <li class="fragment">Scaffolding is the structure of your project. Differs depending on languages used and requirements of project.</li>
                         <li class="fragment">Install via NPM <pre><code>npm install -g yo</code></pre></li>
                         <li class="fragment">Give commands to Yeoman using Yo in the CLI</li>
                     </ul>
@@ -257,7 +258,7 @@
                 <section>
                     <h2>Setup Yeoman project using Fountain Webapp Generator</h2>
                     <video width="800" height="500" controls>
-                        <source src="images/yeoman-x2.mp4" type="video/mp4">
+                        <source src="images/yeoman-v2.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <aside class="notes">
